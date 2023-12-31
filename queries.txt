@@ -1,0 +1,25 @@
+Mongo db task -2 
+
+
+1.Find all the topics and tasks which are thought in the month of October
+ {ans}  db.dbtask.find({users : "student"},{topic : 1,task : 1});
+
+
+2.Find all the placement drives which appeared between 15 oct-2020 and 31-oct-2020
+ {ans}  db. dbtask.find({ users: "student" },{ attendance: 0, topic: 0, task: 0, users: 0, codekata: 0 });
+
+
+3.Find all the placement drives and students who are appeared for the placement
+ {ans}  db.dbtask.find({users : "student"},{placement_drives : 1});
+
+
+4.Find the number of problems solved by the user in codekata
+ {ans}  db.dbtask.find({users : "student"},{codekata : 1});
+
+
+5.Find all the mentors with who has the mentee's count more than 15
+ {ans} db.dbtask.find({ mentee_count: { $gt: 15 } });
+
+6.Find the number of users who are absent and task is not submitted between 15 oct-2020 and 31-oct-2020
+ {ans} db.dbtask.find({users : "students"},{attendance :{ $elemMatch : {status : "A"}}},{task : { $eq : { task : "false" }}});
+
